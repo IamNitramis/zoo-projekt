@@ -1,9 +1,15 @@
 #include <iostream>
+#include "Menu.h"
+#include "Renderer.h"
 
 int main() {
+    Renderer renderer;
+    Menu mainMenu;
 
-    std::cout << "Ahoj kuci, funguje to :)) !" << std::endl;
-    std::cout << "Test commit od Martina";
+    int choice = mainMenu.run(renderer);
+
+    renderer.clearScreen();
+    std::cout << "Selected option index: " << choice << "\n";
 
     return 0;
 }
