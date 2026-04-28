@@ -9,9 +9,8 @@
 
 #include "Hatch.h"
 
-Module::Module(int positionX, int positionY) {
-    m_positionX = positionX;
-    m_positionY = positionY;
+Module::Module(Position position) {
+    m_position = position;
 }
 
 // Protože je to kompozice je nutno vymazat všechny dveře po tom co zanikne modul
@@ -23,12 +22,8 @@ Module::~Module() {
     m_hatches.clear();
 }
 
-int Module::getPositionX() {
-    return m_positionX;
-}
-
-int Module::getPositionY() {
-    return m_positionY;
+Position Module::getPosition() {
+    return m_position;
 }
 
 // Přidá do modulu dveře

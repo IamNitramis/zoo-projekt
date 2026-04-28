@@ -3,29 +3,19 @@
 //
 
 #include "Hatch.h"
-
-#include <iostream>
-#include <ostream>
+#include "Module.h"
 
 
-Hatch::Hatch(int positionX, int positionY, Module *moduleFrom, bool isLocked) {
-    m_positionX = positionX;
-    m_positionY = positionY;
+
+Hatch::Hatch(Module *moduleFrom, bool isLocked, HatchDirection hatchDirection) {
     m_moduleFrom = moduleFrom;
     m_moduleTo = nullptr;
     m_isLocked = isLocked;
+    m_hatchDirection = hatchDirection;
 }
 
 Hatch::~Hatch() {
 
-}
-
-int Hatch::getPositionX() {
-    return m_positionX;
-}
-
-int Hatch::getPositionY() {
-    return m_positionY;
 }
 
 // Připojí modul, kterým se pokračuje
@@ -51,6 +41,14 @@ Module * Hatch::getTargetModule(Module *moduleFrom) {
     }
 
     return nullptr;
+}
+
+Module * Hatch::getFromModule() {
+    return m_moduleFrom;
+}
+
+HatchDirection Hatch::getHatchDirection() {
+    return m_hatchDirection;
 }
 
 bool Hatch::isLocked() {

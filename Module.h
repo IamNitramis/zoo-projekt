@@ -5,20 +5,21 @@
 #ifndef PROJEKT_ZOO_MODULE_H
 #define PROJEKT_ZOO_MODULE_H
 
-class Hatch;
 
 #include <vector>
 
+#include "Position.h"
+
+class Hatch;
+
 class Module {
-    int m_positionX;
-    int m_positionY;
+    Position m_position;
     std::vector<Hatch *> m_hatches;
     const int m_MODULESIZE = 7;
 public:
-    Module(int positionX, int positionY);
+    Module(Position position);
     ~Module();
-    int getPositionX();
-    int getPositionY();
+    Position getPosition();
     void addHatch(Hatch *hatch);
     std::vector<Hatch *> getHatches();
 };

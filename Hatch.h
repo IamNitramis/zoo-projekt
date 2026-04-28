@@ -7,20 +7,23 @@
 
 class Module;
 
+enum class HatchDirection {
+    North, South, East, West
+};
+
 class Hatch {
-    int m_positionX;
-    int m_positionY;
     bool m_isLocked;
     Module* m_moduleFrom;
     Module* m_moduleTo;
+    HatchDirection m_hatchDirection;
 
 public:
-    Hatch(int positionX, int positionY, Module * moduleFrom, bool isLocked);
+    Hatch(Module * moduleFrom, bool isLocked, HatchDirection hatchDirection);
     ~Hatch();
-    int getPositionX();
-    int getPositionY();
     void connectToModule(Module * moduleTo);
     Module * getTargetModule(Module * moduleFrom);
+    Module * getFromModule();
+    HatchDirection getHatchDirection();
     bool isLocked();
     void unlock();
 };

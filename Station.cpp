@@ -24,9 +24,11 @@ void Station::addModule(Module *module) {
     }
 
     m_modules.push_back(module);
+    Position position = module->getPosition();
+    m_mapGrid[position.x][position.y] = module;
 }
 
-// Vrátí první prvek tedy airlock
+// Vrátí první prvek tedy "airlock"
 Module * Station::getStartModule() {
     if (m_modules.empty()) {
         return nullptr;
@@ -36,22 +38,22 @@ Module * Station::getStartModule() {
 }
 
 // Vrácení modulu na pozici, kontrola velikosti mapy
-Module * Station::getModuleAt(int positionX, int positionY) {
-    if (positionX < 0 || positionX >= m_mapGrid.size() ||
-        positionY < 0 || positionY >= m_mapGrid[0].size()) {
+Module * Station::getModuleAt(Position position) {
+    if (position.x < 0 or position.x >= m_mapGrid.size() or
+        position.y < 0 or position.y >= m_mapGrid[0].size()) {
+            return nullptr;
+        }
 
-        return nullptr;
-    }
-
-    return m_mapGrid[positionX][positionY];
+    return m_mapGrid[position.x][position.y];
 }
 
-bool Station::isSpaceFree(int positionX, int positionY) {
-    if (positionX < 0 || positionX >= m_mapGrid.size() ||
-        positionY < 0 || positionY >= m_mapGrid[0].size()) {
 
-        return false;
-    }
+// Kontrola zda je místo volné, kontrola velikosti mapy
+bool Station::isSpaceFree(Position position) {
+    if (position.x < 0 or position.x >= m_mapGrid.size() or
+        position.y < 0 or position.y >= m_mapGrid[0].size()) {
+            return false;
+        }
 
-    return m_mapGrid[positionX][positionY] == nullptr;
+    return m_mapGrid[position.x][position.y] == nullptr;
 }

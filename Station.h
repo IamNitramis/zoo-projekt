@@ -5,9 +5,11 @@
 #ifndef PROJEKT_ZOO_STATION_H
 #define PROJEKT_ZOO_STATION_H
 
-#include "Module.h"
-
 #include <vector>
+
+#include "Position.h"
+
+class Module;
 
 class Station {
     std::vector<Module*> m_modules;
@@ -18,8 +20,8 @@ public:
     ~Station();
     void addModule(Module * module);
     Module * getStartModule();
-    Module * getModuleAt(int positionX, int positionY);
-    bool isSpaceFree(int positionX, int positionY);
+    Module * getModuleAt(Position position);
+    bool isSpaceFree(Position position);
 };
 
 

@@ -22,4 +22,5 @@ add_executable(Projekt-zoo main.cpp
         Station.h
         ModuleFactory.cpp
         ModuleFactory.h
+        Position.h
 )
