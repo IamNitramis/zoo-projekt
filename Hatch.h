@@ -15,7 +15,7 @@ class Hatch {
     Module* m_moduleTo;
 
 public:
-    Hatch(int positionX, int positionY, Module * moduleFrom);
+    Hatch(int positionX, int positionY, Module * moduleFrom, bool isLocked);
     ~Hatch();
     int getPositionX();
     int getPositionY();
