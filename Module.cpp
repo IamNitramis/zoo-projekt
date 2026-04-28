@@ -34,7 +34,6 @@ int Module::getPositionY() {
 // Přidá do modulu dveře
 void Module::addHatch(Hatch *hatch) {
     if (hatch == nullptr) {
-        std::cout << "Snazis se pridat prazdny {hatch}: " << hatch << std::endl;
         return;
     }
 

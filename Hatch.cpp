@@ -31,7 +31,6 @@ int Hatch::getPositionY() {
 // Připojí modul, kterým se pokračuje
 void Hatch::connectToModule(Module *moduleTo) {
     if (moduleTo == nullptr) {
-        std::cout << "Prazdny ukazatel {moduleTo}: " << moduleTo << std::endl;
         return;
     }
 
@@ -41,7 +40,6 @@ void Hatch::connectToModule(Module *moduleTo) {
 // Když hráč přijde ke dveřím, tak se dozví z jaké strany jde, *moduleFrom je vlastně směr, ze kterého jde hráč
 Module * Hatch::getTargetModule(Module *moduleFrom) {
     if (moduleFrom == nullptr) {
-        std::cout << "Prazdny ukazatel {moduleFrom}: " << moduleFrom << std::endl;
         return nullptr;
     }
 
@@ -52,7 +50,6 @@ Module * Hatch::getTargetModule(Module *moduleFrom) {
         return m_moduleFrom;
     }
 
-    std::cout << "Snazis je jit do spatne mistnosti {moduleFrom}: " << moduleFrom << std::endl;
     return nullptr;
 }
 
