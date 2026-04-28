@@ -14,4 +14,12 @@ add_executable(Projekt-zoo main.cpp
         Renderer.h
         Menu.cpp
         Menu.h
+        Hatch.cpp
+        Hatch.h
+        Module.cpp
+        Module.h
+        Station.cpp
+        Station.h
+        ModuleFactory.cpp
+        ModuleFactory.h
 )
