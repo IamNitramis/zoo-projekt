@@ -18,6 +18,7 @@ Station::~Station() {
     m_modules.clear();
 }
 
+// Přidá modul do stationu
 void Station::addModule(Module *module) {
     if (module == nullptr) {
         return;
